@@ -1,0 +1,9 @@
+# Default values for greeter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+app-name: api-gateway
+app-version: v1
+image: khaale/grpc-demo-api-gateway

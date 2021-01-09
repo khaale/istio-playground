@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "grpc-service.fullname" . }}
+  labels:
+    {{- include "grpc-service.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http2
+      protocol: TCP
+      name: http2
+  selector:
+    {{- include "grpc-service.selectorLabels" . | nindent 4 }}
